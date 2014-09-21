@@ -54,9 +54,9 @@ public class DLinkedList<E> {
     		listString += curNode.getValue();
     		
     		if(curNode.successor() != null){
-    			listString += ",";
-    			curNode = curNode.successor();
+    			listString += ", ";
     		}
+    		curNode = curNode.successor();
 	
     	}
 
@@ -75,10 +75,22 @@ public class DLinkedList<E> {
         // IMPORTANT: This method should NOT use field size. In order to use
         // toStringReverse for testing, as we advocate in the handout, toStringReverse
         // uses only the tail and pred fields.
-        
-        
+    	
+    	String listString = "";
+    	
+    	Node curNode = tail;
+    	
+    	while (curNode != null){
+    		listString += curNode.getValue();
+    		
+    		if(curNode.predecessor() != null){
+    			listString += ", ";
+    		}
+    		curNode = curNode.predecessor();
+	
+    	}
 
-        return "";
+        return "[" + listString + "]";
     }
  
     /** Insert value v in a new node at the beginning of the list and
@@ -108,9 +120,24 @@ public class DLinkedList<E> {
     public Node append(E v) {
         // Method append is the fourth function to write and test. Don't go on until you
         // believe that it is correct.
+    	
+    	//List consists of only one node
+        if(tail == null){
+        	tail = new Node(null, null, v);       	
+        	head = tail;
+        }
         
+        //Insert new node at end of list
+        else{       	
+        	tail.succ = new Node(tail, null, v);
+        	tail = tail.succ;
+        }
+    	
+        //We have a new tail node
+        size++;
         
-        return null;
+        return tail;
+        
     }
 
     /** Insert value v in a new node before element e and
@@ -141,8 +168,16 @@ public class DLinkedList<E> {
         // node is different from inserting one after any other node. Draw two pictures.
         // Can you do the first case in terms of a previously written method?
         
+    	//Insert new node at beginning of list
+        if(e.successor() == null){
+        	append(v);
+        }
         
-        
+        else{
+        	e.succ = new Node(e, e.succ, v);
+        	e.succ.succ.pred = e.succ;
+        	size++;
+        }
         return null;
     }
 
