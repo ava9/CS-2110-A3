@@ -9,6 +9,7 @@ public class DLinkedListTester {
 	 public void testtoString() {
 		 DLinkedList<Integer> list = new DLinkedList<Integer>();
 		 assertEquals("[]", list.toString());
+		 assertEquals("[]", list.toStringReverse());
 		 assertEquals(0, list.size());
 	 }
 	
@@ -16,6 +17,7 @@ public class DLinkedListTester {
 	 public void testtoStringReverse() {
 		 DLinkedList<Integer> list = new DLinkedList<Integer>();
 		 assertEquals("[]", list.toString());
+		 assertEquals("[]", list.toStringReverse());
 		 assertEquals(0, list.size());
 	 }
 
@@ -28,7 +30,6 @@ public class DLinkedListTester {
 		
 		list.prepend(5);
 		assertEquals(list.size(), 1);
-		System.out.println(list.toString());
 		assertEquals(list.toString(), "[5]");
 		assertEquals(list.toStringReverse(), "[5]");
 		

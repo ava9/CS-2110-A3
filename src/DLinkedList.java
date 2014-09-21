@@ -1,9 +1,9 @@
-/* Time spent on a2:  hh hours and mm minutes.
+/* Time spent on a3:  2 hours and 0 minutes.
 
- * Name:
- * Netid: 
+ * Name: Aditya Agashe (ava9) and Shankar Athinarayanan (sa625)
+ * Netid: ava9, sa625
  * What I thought about this assignment:
- *
+ * It was fun.  We learned a lot.
  *
  */
 
@@ -34,16 +34,19 @@ public class DLinkedList<E> {
     }
 
     /** Return the value of node e of this list.
-     * Precondition: e must be a node of this list; it may not be null. */
+     * Precondition: e must be a node of this list; 
+     * it may not be null. */
     public E valueOf(Node e) {
         assert e != null;
         return e.value;
     }
     
-    /** Return a representation of this list: its values, with adjacent
-     * ones separated by ", ", "[" at the beginning, and "]" at the end. <br>
+    /** Return a representation of this list: its values, 
+     * with adjacent ones separated by 
+     * ", ", "[" at the beginning, and "]" at the end. <br>
      * 
-     * E.g. for the list containing 6 3 8 in that order, the result it "[6, 3, 8]". */
+     * E.g. for the list containing 6 3 8 in that order, 
+     * the result it "[6, 3, 8]". */
     public String toString() {
     	
     	String listString = "";
@@ -63,17 +66,21 @@ public class DLinkedList<E> {
         return "[" + listString + "]";
     }
 
-    /** Return a representation of this list: its values in reverse, with adjacent
-     * ones separated by ", ", "[" at the beginning, and "]" at the end. <br>
+    /** Return a representation of this list: its values in
+     * reverse, with adjacent ones separated by ", ", "[" 
+     * at the beginning, and "]" at the end. <br>
      * 
-     * E.g. for the list containing 6 3 8 in that order, the result it "[8, 3, 6]".*/
+     * E.g. for the list containing 6 3 8 in that order,
+     * the result it "[8, 3, 6]".*/
     public String toStringReverse() {
-        // Write this method second. You can test it on the empty list, which the
-        // constructor creates. You can't do any more testing until you have written
-        // append. Then test toString, toStringReverse, and prepend together.
+        // Write this method second. You can test it on the 
+    	//empty list, which the constructor creates. You can't do 
+    	//any more testing until you have written append.
+    	//Then test toString, toStringReverse, and prepend together.
         
-        // IMPORTANT: This method should NOT use field size. In order to use
-        // toStringReverse for testing, as we advocate in the handout, toStringReverse
+        // IMPORTANT: This method should NOT use field size. 
+    	// In order to use toStringReverse for testing, 
+    	//as we advocate in the handout, toStringReverse
         // uses only the tail and pred fields.
     	
     	String listString = "";
@@ -118,8 +125,8 @@ public class DLinkedList<E> {
     /** add value v in a new node at the end of the list and
      * return the new node. */
     public Node append(E v) {
-        // Method append is the fourth function to write and test. Don't go on until you
-        // believe that it is correct.
+        // Method append is the fourth function to write and test.
+    	//Don't go on until you believe that it is correct.
     	
     	//List consists of only one node
         if(tail == null){
@@ -142,7 +149,8 @@ public class DLinkedList<E> {
 
     /** Insert value v in a new node before element e and
      * return the new node.
-     * Precondition: e must be a node of this list; it may not be null. */
+     * Precondition: e must be a node of this list; 
+     * it may not be null. */
     public Node insertBefore(E v, Node e) {
         
     	//Insert new node at beginning of list
@@ -160,13 +168,16 @@ public class DLinkedList<E> {
 
     /** Insert value v in a new node after node e and
      * return the new node.
-     * Precondition: e must be an node of this list; it may not be null. */
+     * Precondition: e must be an node of this list; 
+     * it may not be null. */
     public Node insertAfter(E v, Node e) {
-        // Method insertAfter is the sixth function to write and test. Don't go on until you
-        // believe that it is correct.
-        // Here is a hint: There really are two cases: inserting a node after the last
-        // node is different from inserting one after any other node. Draw two pictures.
-        // Can you do the first case in terms of a previously written method?
+        // Method insertAfter is the sixth function to write and test. 
+    	//Don't go on until you believe that it is correct.
+        // Here is a hint: There really are two cases: 
+    	//inserting a node after the last node is different from 
+    	//inserting one after any other node. Draw two pictures.
+        // Can you do the first case in terms of a previously 
+    	//written method?
         
     	//Insert new node at beginning of list
         if(e.successor() == null){
@@ -182,7 +193,8 @@ public class DLinkedList<E> {
     }
 
     /** Remove node e from this list.
-     * Precondition: e must be a node of this list; it may not be null. */
+     * Precondition: e must be a node of this list; 
+     * it may not be null. */
     public void remove(Node e) {
        
     	//Extreme case (base case)
@@ -216,17 +228,20 @@ public class DLinkedList<E> {
 
     /** An instance is a node of this list. */
     public class Node {
-        /** Predecessor of this node on the list (null if the list is empty). */
+        /** Predecessor of this node on the list 
+         * (null if the list is empty). */
         private Node pred;
 
         /** The value of this element. */
         private E value; 
 
-        /** Successor of this node on the list. (null if the list is empty). */
+        /** Successor of this node on the list. 
+         * (null if the list is empty). */
         private Node succ; 
 
-        /** Constructor: an instance with predecessor p (p can be null),
-         * successor s (s can be null), and value v. */
+        /** Constructor: an instance with predecessor p 
+         * (p can be null), successor s (s can be null),
+         * and value v. */
         private Node(Node p, Node s, E v) {
             pred= p;
             succ= s;
@@ -238,14 +253,14 @@ public class DLinkedList<E> {
             return value;
         }
         
-        /** Return the predecessor of this node e in the list (null if e is the
-         * first node of this list). */
+        /** Return the predecessor of this node e in the list 
+         * (null if e is the first node of this list). */
         public Node predecessor() {
             return pred;
         }
 
-        /** Return the successor of this node in this list (null if e is the
-         * last node of this list). */
+        /** Return the successor of this node in this list 
+         * (null if e is the last node of this list). */
         public Node successor() {
             return succ;
         }
